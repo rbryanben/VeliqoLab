@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.login.login">
+
+    <!-- Cancel Button -->
+    <ImageView
+        android:id="@+id/activityLoginCancelImageView"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/icon_cancel"
+        app:tint="@color/colorEditText"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Welcome back text -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:lineSpacingExtra="-10dp"
+        android:text="Welcome \nback friend!"
+        android:textColor="@color/colorEditTextFocus"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/activityLoginCancelImageView"
+        app:layout_constraintTop_toBottomOf="@id/activityLoginCancelImageView" />
+
+    <!-- Email Input -->
+    <com.wapazock.veliqolab.custom.CustomEmailEditText
+        android:id="@+id/activityLoginCustomEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="15dp"
+        app:CustomEditTextHint="Email Address"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!-- Password Input -->
+    <com.wapazock.veliqolab.custom.CustomPasswordEditText
+        android:id="@+id/activityLoginCustomPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="10dp"
+        app:CustomEditTextHint="Password"
+        app:layout_constraintTop_toBottomOf="@id/activityLoginCustomEmailEditText"/>
+
+    <!-- Forgot Password link -->
+    <TextView
+        android:id="@+id/activityLoginForgotButtonTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@color/hyperlink"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/activityLoginCustomPasswordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/activityLoginCustomPasswordEditText" />
+
+    <!-- Login Button -->
+    <com.wapazock.veliqolab.custom.CustomButton
+        android:id="@+id/activityLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="20dp"
+        app:CustomButtonText="Sign In"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

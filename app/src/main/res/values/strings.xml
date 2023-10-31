@@ -1,0 +1,4 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">Veliqolab</string>
+    <string name="terms_prompt">I agree with the <i>Terms of Service</i> and confirm I have ready the <i>Privacy Policy</i></string>
+</resources>
