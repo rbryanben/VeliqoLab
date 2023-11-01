@@ -23,6 +23,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="veliq.com"
                     android:pathPrefix="/app"
@@ -39,9 +40,9 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.otp.OtpRegisterActivity"/>
+        <activity android:name=".views.otp.OtpRegisterActivity" />
         <activity
-            android:name=".views.register.register"
+            android:name=".views.otp.CheckYourEmailActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

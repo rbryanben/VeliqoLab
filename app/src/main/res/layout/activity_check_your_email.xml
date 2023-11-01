@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.otp.otp">
+
+    <!-- Cancel Button -->
+    <ImageView
+        android:id="@+id/activityCheckYourEmailCancelImageView"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/icon_cancel"
+        app:tint="@color/colorEditText"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Welcome back text -->
+    <TextView
+        android:id="@+id/activityCheckYourEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:lineSpacingExtra="-10dp"
+        android:text="You are almost \nthere!"
+        android:textColor="@color/colorEditTextFocus"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/activityCheckYourEmailCancelImageView"
+        app:layout_constraintTop_toBottomOf="@id/activityCheckYourEmailCancelImageView" />
+
+    <!-- Sub text -->
+    <TextView
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"
+        android:text="@string/check_your_email_subtext"
+        app:layout_constraintStart_toStartOf="@+id/activityCheckYourEmailTextView"
+        app:layout_constraintTop_toBottomOf="@+id/activityCheckYourEmailTextView" />
+
+    <!-- Check Email -->
+    <com.wapazock.veliqolab.custom.CustomButton
+        android:id="@+id/activityCheckYourEmailOpenEmailButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:CustomButtonText="Open Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginLeft="22dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
