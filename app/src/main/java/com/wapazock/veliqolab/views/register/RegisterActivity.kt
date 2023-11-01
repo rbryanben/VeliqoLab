@@ -1,6 +1,7 @@
 package com.wapazock.veliqolab.views.register
 
 import RegisterUserData
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
@@ -17,6 +18,7 @@ import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.interfaces.RegisterUserInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
 import com.wapazock.veliqolab.utils.validators.RegistrationUserDataValidator
+import java.util.Base64
 
 
 class register : AppCompatActivity(), RegisterUserInterface {
