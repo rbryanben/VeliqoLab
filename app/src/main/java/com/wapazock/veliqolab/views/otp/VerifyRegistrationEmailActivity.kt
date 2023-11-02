@@ -1,10 +1,12 @@
 package com.wapazock.veliqolab.views.otp
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import com.wapazock.veliqolab.R
 import com.wapazock.veliqolab.custom.CustomButton
@@ -15,24 +17,27 @@ import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
 import com.wapazock.veliqolab.utils.validators.OTPValidator
 import com.wapazock.veliqolab.views.login.loginActivity
 
-class OtpRegisterActivity : AppCompatActivity(), VerifyEmailInterface {
+class VerifyRegistrationEmailActivity : AppCompatActivity(), VerifyEmailInterface {
 
     // View Variables
     private lateinit var otpEditText : EditText
     private lateinit var verifyButton : CustomButton
     private lateinit var cancelButton : ImageView
+    private lateinit var requestNewOTP : TextView
 
     // Variables
     private var otpPin: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_otp)
+        setContentView(R.layout.activity_verify_registration_email)
 
         // Assign View Variables
-        otpEditText =  this.findViewById(R.id.activityOTPPin)
-        verifyButton = this.findViewById(R.id.activityOTPVerifyCustomButton)
-        cancelButton = this.findViewById(R.id.activityOTPCancelImageView)
+        otpEditText =  this.findViewById(R.id.activityVerifyRegistrationEmailOTPEditText)
+        verifyButton = this.findViewById(R.id.activityVerifyRegistrationEmailOTPCustomButton)
+        cancelButton = this.findViewById(R.id.activityVerifyRegistrationEmailOTPCancelImageView)
+        requestNewOTP = this.findViewById(R.id.activityVerifyEmailOTPNewOTPTextView)
+
 
         // Bind Cancel
         bindCancel()
@@ -40,6 +45,16 @@ class OtpRegisterActivity : AppCompatActivity(), VerifyEmailInterface {
         bindOTPInput()
         // Bind Verify Button
         bindVerifyButton()
+        // Bind Request OTP
+        bindRequestNewOTP()
+    }
+
+    // Bind the request for a new otp - will show loading
+    private fun bindRequestNewOTP() {
+        requestNewOTP.setOnClickListener{
+            // Start Loading Dialog
+
+        }
     }
 
     // Bind verify button -  onclick if otp is valid submit the email

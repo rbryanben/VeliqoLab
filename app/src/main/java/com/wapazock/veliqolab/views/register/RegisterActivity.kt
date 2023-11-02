@@ -1,24 +1,23 @@
 package com.wapazock.veliqolab.views.register
 
 import RegisterUserData
-import android.net.Uri
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.EditText
-import android.widget.RadioGroup
-import android.widget.RadioGroup.OnCheckedChangeListener
 import androidx.core.widget.doOnTextChanged
 import com.wapazock.veliqolab.R
 import com.wapazock.veliqolab.custom.CustomButton
-import com.wapazock.veliqolab.custom.CustomEmailEditText
 import com.wapazock.veliqolab.repository.AuthRepository
 import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.interfaces.RegisterUserInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
 import com.wapazock.veliqolab.utils.validators.RegistrationUserDataValidator
-import java.util.Base64
+import com.wapazock.veliqolab.views.otp.CheckYourEmailActivity
 
 
 class register : AppCompatActivity(), RegisterUserInterface {
@@ -123,12 +122,27 @@ class register : AppCompatActivity(), RegisterUserInterface {
 
                 // If successful then finish
                 if (wasSuccessful){
-                    finish()
+                    // Write the email to shared preferences
+                    val sharedPreferences: SharedPreferences = getSharedPreferences("registrations", Context.MODE_PRIVATE)
+                    with (sharedPreferences.edit()){
+                        putString("email",registrationUserData.getEmail())
+                        apply()
+                    }
+
+                    val intent : Intent = Intent(baseContext,CheckYourEmailActivity::class.java);
+                    startActivity(intent)
+                    return
                 }
 
                 // Server Not Reachable
                 if (error == ServerError.SERVER_UNREACHABLE){
                     ClassicNotifications.alertNotification(baseContext,"Server Unreachable")
+                    return
+                }
+
+                // Email Already Exists
+                if (error == ServerError.EMAIL_ALREADY_EXISTS){
+                    ClassicNotifications.alertNotification(baseContext,"Email Already Exists")
                     return
                 }
 
