@@ -3,5 +3,5 @@
     <string name="filter_view_http_gizmos">veliqo.app</string>
     <string name="filter_view_example_gizmos">veliqo.com</string>
     <string name="terms_prompt">I agree with the <i>Terms of Service</i> and confirm I have ready the <i>Privacy Policy</i></string>
-    <string name="check_your_email_subtext">A verification email has been sent to [email address]. Please click the link in the email to verify your account.</string>
+    <string name="check_your_email_subtext">A verification email has been sent to your email. Please click the link in the email to verify your account.</string>
 </resources>

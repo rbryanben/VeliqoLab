@@ -8,7 +8,7 @@
 
     <!-- Cancel Button -->
     <ImageView
-        android:id="@+id/activityOTPCancelImageView"
+        android:id="@+id/activityVerifyRegistrationEmailOTPCancelImageView"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:src="@drawable/icon_cancel"
@@ -29,12 +29,12 @@
         android:textColor="@color/colorEditTextFocus"
         android:textSize="35dp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@id/activityOTPCancelImageView"
-        app:layout_constraintTop_toBottomOf="@id/activityOTPCancelImageView" />
+        app:layout_constraintLeft_toLeftOf="@id/activityVerifyRegistrationEmailOTPCancelImageView"
+        app:layout_constraintTop_toBottomOf="@id/activityVerifyRegistrationEmailOTPCancelImageView" />
 
     <!-- First Name -->
     <EditText
-        android:id="@+id/activityOTPPin"
+        android:id="@+id/activityVerifyRegistrationEmailOTPEditText"
         app:layout_constraintTop_toBottomOf="@id/activityRegisterTextView"
         android:hint="OTP"
         android:inputType="number"
@@ -50,17 +50,19 @@
 
     <!-- Request New Otp -->
     <TextView
+        android:id="@+id/activityVerifyEmailOTPNewOTPTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Request new OTP"
         android:layout_marginTop="10dp"
         android:textSize="12dp"
         android:textColor="@color/hyperlink"
-        app:layout_constraintStart_toStartOf="@+id/activityOTPPin"
-        app:layout_constraintTop_toBottomOf="@+id/activityOTPPin" />
+        app:layout_constraintStart_toStartOf="@+id/activityVerifyRegistrationEmailOTPEditText"
+        app:layout_constraintTop_toBottomOf="@+id/activityVerifyRegistrationEmailOTPEditText" />
+
     <!-- Submit OTP -->
     <com.wapazock.veliqolab.custom.CustomButton
-        android:id="@+id/activityOTPVerifyCustomButton"
+        android:id="@+id/activityVerifyRegistrationEmailOTPCustomButton"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="20dp"
         app:CustomButtonText="Verify"

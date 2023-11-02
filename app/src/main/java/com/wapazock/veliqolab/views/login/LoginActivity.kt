@@ -16,7 +16,7 @@ import com.wapazock.veliqolab.utils.interfaces.GetAuthTokenInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
 import com.wapazock.veliqolab.utils.validators.AuthUserValidator
 
-class login : AppCompatActivity() , GetAuthTokenInterface {
+class loginActivity : AppCompatActivity() , GetAuthTokenInterface {
 
     // View Variables
     private lateinit var closeImageView : ImageView
