@@ -6,6 +6,7 @@ import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.http.http
 import com.wapazock.veliqolab.utils.interfaces.GetAuthTokenInterface
 import com.wapazock.veliqolab.utils.interfaces.RegisterUserInterface
+import com.wapazock.veliqolab.utils.interfaces.VerifyEmailInterface
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -13,7 +14,6 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
-import org.json.JSONObject
 import java.io.IOException
 
 
@@ -93,6 +93,47 @@ class AuthRepository {
                             registerUserInterface.onRegistrationResult(registerUserData.getEmail(),false,ServerError.SOMETHING_WENT_WRONG)
                         }
                     }
+                }
+            })
+        }
+
+        /*
+         Verify email with OTP
+         */
+        public fun verifyEmailWithOTP(otpPin: String, onVerifyEmailInterface: VerifyEmailInterface){
+            // Request
+            val request = Request.Builder()
+                .get()
+                .url(http.BASE_URL+"/auth/effector/verify-email/$otpPin")
+                .build()
+
+            // Enqueue Request
+            client.newCall(request).enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onVerifyEmailInterface.onVerifyEmailWithOTPResult(false,ServerError.SERVER_UNREACHABLE)
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val code = response.code
+                    // 200 response
+                    if (code == 200){
+                        onVerifyEmailInterface.onVerifyEmailWithOTPResult(true,null)
+                        return
+                    }
+
+                    // 401 - Invalid OTP
+                    if (code == 401 && response.body.toString().contains("Not Found")){
+                        onVerifyEmailInterface.onVerifyEmailWithOTPResult(false,ServerError.INVALID_OTP)
+                        return
+                    }
+
+                    // 401 - Expired OTP
+                    if (code == 401){
+                        onVerifyEmailInterface.onVerifyEmailWithOTPResult(false,ServerError.INVALID_OTP)
+                        return
+                    }
+
+                    onVerifyEmailInterface.onVerifyEmailWithOTPResult(false,ServerError.SOMETHING_WENT_WRONG)
                 }
             })
         }
