@@ -1,12 +1,15 @@
 package com.wapazock.veliqolab.views.otp
 
-import android.app.Dialog
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.wapazock.veliqolab.R
 import com.wapazock.veliqolab.custom.CustomButton
@@ -14,6 +17,7 @@ import com.wapazock.veliqolab.repository.AuthRepository
 import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.interfaces.VerifyEmailInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
+import com.wapazock.veliqolab.utils.notifications.NotificationTypes
 import com.wapazock.veliqolab.utils.validators.OTPValidator
 import com.wapazock.veliqolab.views.login.loginActivity
 
@@ -47,6 +51,8 @@ class VerifyRegistrationEmailActivity : AppCompatActivity(), VerifyEmailInterfac
         bindVerifyButton()
         // Bind Request OTP
         bindRequestNewOTP()
+
+        ClassicNotifications.alertNotification(baseContext,"This should be a network error",NotificationTypes.SUCCESS)
     }
 
     // Bind the request for a new otp - will show loading
@@ -112,18 +118,18 @@ class VerifyRegistrationEmailActivity : AppCompatActivity(), VerifyEmailInterfac
 
             // Invalid OTP
             if (errorCode == ServerError.INVALID_OTP){
-                ClassicNotifications.alertNotification(baseContext,"Invalid OTP")
+                ClassicNotifications.alertNotification(baseContext,"Invalid OTP",NotificationTypes.INVALID_INPUT)
                 return@runOnUiThread
             }
 
             // Expired OTP
             if (errorCode == ServerError.EXPIRED_OTP){
-                ClassicNotifications.alertNotification(baseContext,"Expired OPT")
+                ClassicNotifications.alertNotification(baseContext,"Expired OPT",NotificationTypes.INVALID_INPUT)
                 return@runOnUiThread
             }
 
             // Something Went Terribly Wrong
-            ClassicNotifications.alertNotification(baseContext,"Something Went Wrong")
+            ClassicNotifications.alertNotification(baseContext,"Something Went Wrong",NotificationTypes.SOMETHING_WENT_WRONG)
         }
     }
 }

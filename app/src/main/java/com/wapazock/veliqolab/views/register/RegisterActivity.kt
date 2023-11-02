@@ -16,6 +16,7 @@ import com.wapazock.veliqolab.repository.AuthRepository
 import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.interfaces.RegisterUserInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
+import com.wapazock.veliqolab.utils.notifications.NotificationTypes
 import com.wapazock.veliqolab.utils.validators.RegistrationUserDataValidator
 import com.wapazock.veliqolab.views.otp.CheckYourEmailActivity
 
@@ -136,18 +137,18 @@ class register : AppCompatActivity(), RegisterUserInterface {
 
                 // Server Not Reachable
                 if (error == ServerError.SERVER_UNREACHABLE){
-                    ClassicNotifications.alertNotification(baseContext,"Server Unreachable")
+                    ClassicNotifications.alertNotification(baseContext,"Server Unreachable",NotificationTypes.NETWORK_ERROR)
                     return
                 }
 
                 // Email Already Exists
                 if (error == ServerError.EMAIL_ALREADY_EXISTS){
-                    ClassicNotifications.alertNotification(baseContext,"Email Already Exists")
+                    ClassicNotifications.alertNotification(baseContext,"Email Already Exists",NotificationTypes.INVALID_INPUT)
                     return
                 }
 
                 // Something Else Went Wrong
-                ClassicNotifications.alertNotification(baseContext,"Something Went Wrong")
+                ClassicNotifications.alertNotification(baseContext,"Something Went Wrong",NotificationTypes.SOMETHING_WENT_WRONG)
             }
         })
 

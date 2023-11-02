@@ -14,6 +14,7 @@ import com.wapazock.veliqolab.repository.AuthRepository
 import com.wapazock.veliqolab.utils.errors.ServerError
 import com.wapazock.veliqolab.utils.interfaces.GetAuthTokenInterface
 import com.wapazock.veliqolab.utils.notifications.ClassicNotifications
+import com.wapazock.veliqolab.utils.notifications.NotificationTypes
 import com.wapazock.veliqolab.utils.validators.AuthUserValidator
 
 class loginActivity : AppCompatActivity() , GetAuthTokenInterface {
@@ -96,18 +97,18 @@ class loginActivity : AppCompatActivity() , GetAuthTokenInterface {
 
                 // Valid Credentials - set the global auth token header
                 if (wasSuccessful){
-                    ClassicNotifications.alertNotification(baseContext,"Auth Successful")
+                    ClassicNotifications.alertNotification(baseContext,"Auth Successful",NotificationTypes.INVALID_INPUT)
                     return
                 }
 
                 // Server Unreachable
                 if (error == ServerError.SERVER_UNREACHABLE) {
-                    ClassicNotifications.alertNotification(baseContext,"Server Unreachable")
+                    ClassicNotifications.alertNotification(baseContext,"Server Unreachable",NotificationTypes.NETWORK_ERROR)
                 }
 
                 // Invalid Credentials
                 if (error == ServerError.INVALID_CREDENTIALS){
-                    ClassicNotifications.alertNotification(baseContext,"Invalid Email or Password")
+                    ClassicNotifications.alertNotification(baseContext,"Invalid Email or Password",NotificationTypes.INVALID_INPUT)
                 }
             }
         })
