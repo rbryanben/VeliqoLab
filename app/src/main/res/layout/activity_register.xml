@@ -4,8 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.register.register">
+    tools:context=".views.register.register"
+    android:background="@color/black">
 
+    <!-- Make Scrollable for small screens -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+
+        <!-- Constraint Layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Welcome back text -->
+            <TextView
+                android:id="@+id/activityRegisterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:lineSpacingExtra="-10dp"
+                android:layout_marginLeft="22dp"
+                android:text="We're glad to have\nyou!"
+                android:textColor="@color/colorEditTextFocus"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <!-- First Name -->
+            <EditText
+                android:id="@+id/activityRegisterFirstNameEditText"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterTextView"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:background="@drawable/drawable_edittext"/>
+
+            <!-- Last Name -->
+            <EditText
+                android:id="@+id/activityRegisterLastNameEditText"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterFirstNameEditText"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:background="@drawable/drawable_edittext"/>
+
+            <!-- Email -->
+            <EditText
+                android:id="@+id/activityRegisterEmailEditText"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterLastNameEditText"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:background="@drawable/drawable_edittext"/>
+
+            <!-- Phone Number  -->
+            <EditText
+                android:id="@+id/activityRegisterPhoneNumberEditText"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterEmailEditText"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:background="@drawable/drawable_edittext"/>
+
+            <!-- Password -->
+            <EditText
+                android:id="@+id/activityRegisterPasswordEditText"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterPhoneNumberEditText"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="15dp"
+                android:textSize="15dp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:background="@drawable/drawable_edittext"/>
+
+            <!-- Terms And Conditions -->
+            <CheckBox
+                android:id="@+id/activityRegisterTermsCheckBox"
+                app:layout_constraintTop_toBottomOf="@id/activityRegisterPasswordEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="22dp"
+                android:checked="true"
+                android:layout_marginTop="20dp"
+                android:button="@null"
+                android:background="@drawable/custom_round_checkbox"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:maxWidth="300dp"
+                android:text="@string/terms_prompt"
+                app:layout_constraintBottom_toBottomOf="@id/activityRegisterTermsCheckBox"
+                app:layout_constraintLeft_toRightOf="@id/activityRegisterTermsCheckBox"
+                app:layout_constraintTop_toTopOf="@id/activityRegisterTermsCheckBox" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
     <!-- Cancel Button -->
     <ImageView
         android:id="@+id/activityRegisterCancelImageView"
@@ -18,122 +152,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Welcome back text -->
-    <TextView
-        android:id="@+id/activityRegisterTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:lineSpacingExtra="-10dp"
-        android:text="We're glad to have\nyou!"
-        android:textColor="@color/colorEditTextFocus"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@id/activityRegisterCancelImageView"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterCancelImageView" />
-
-    <!-- First Name -->
-    <EditText
-        android:id="@+id/activityRegisterFirstNameEditText"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterTextView"
-        android:hint="First Name"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="15dp"
-        android:textSize="15dp"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:background="@drawable/drawable_edittext"/>
-
-    <!-- Last Name -->
-    <EditText
-        android:id="@+id/activityRegisterLastNameEditText"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterFirstNameEditText"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="15dp"
-        android:textSize="15dp"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:background="@drawable/drawable_edittext"/>
-
-    <!-- Email -->
-    <EditText
-        android:id="@+id/activityRegisterEmailEditText"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterLastNameEditText"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="15dp"
-        android:textSize="15dp"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:background="@drawable/drawable_edittext"/>
-
-    <!-- Phone Number  -->
-    <EditText
-        android:id="@+id/activityRegisterPhoneNumberEditText"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterEmailEditText"
-        android:hint="Phone Number"
-        android:inputType="number"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="15dp"
-        android:textSize="15dp"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:background="@drawable/drawable_edittext"/>
-
-    <!-- Password -->
-    <EditText
-        android:id="@+id/activityRegisterPasswordEditText"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterPhoneNumberEditText"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="22dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingLeft="15dp"
-        android:textSize="15dp"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:background="@drawable/drawable_edittext"/>
-
-    <!-- Terms And Conditions -->
-    <CheckBox
-        android:id="@+id/activityRegisterTermsCheckBox"
-        app:layout_constraintTop_toBottomOf="@id/activityRegisterPasswordEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="22dp"
-        android:checked="true"
-        android:layout_marginTop="20dp"
-        android:button="@null"
-        android:background="@drawable/custom_round_checkbox"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:maxWidth="300dp"
-        android:text="@string/terms_prompt"
-        app:layout_constraintBottom_toBottomOf="@id/activityRegisterTermsCheckBox"
-        app:layout_constraintLeft_toRightOf="@id/activityRegisterTermsCheckBox"
-        app:layout_constraintTop_toTopOf="@id/activityRegisterTermsCheckBox" />
 
     <!-- Register Button -->
     <com.wapazock.veliqolab.custom.CustomButton

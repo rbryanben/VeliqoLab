@@ -73,6 +73,7 @@ class CustomButton : FrameLayout {
         buttonTextView = rootView.findViewById(R.id.customButtonTextView)
         progressBar = rootView.findViewById(R.id.customButtonProgressBar)
 
+
         // Get and Set Attributes
         val attributesArray : TypedArray = context.obtainStyledAttributes(attr,R.styleable.CustomButton)
         val text: String = attributesArray.getString(R.styleable.CustomButton_CustomButtonText).toString()

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.widget.doOnTextChanged
 import com.wapazock.veliqolab.R
 import com.wapazock.veliqolab.custom.CustomButton
@@ -24,6 +25,7 @@ import com.wapazock.veliqolab.views.otp.CheckYourEmailActivity
 class register : AppCompatActivity(), RegisterUserInterface {
 
     // View variables
+    private lateinit var cancelButton : ImageView
     private lateinit var firstNameEditText: EditText
     private lateinit var lastNameEditText: EditText
     private lateinit var emailEditText: EditText
@@ -47,11 +49,21 @@ class register : AppCompatActivity(), RegisterUserInterface {
         passwordEditText = findViewById(R.id.activityRegisterPasswordEditText)
         checkBox = findViewById(R.id.activityRegisterTermsCheckBox)
         signUpCustomButton = findViewById(R.id.activityRegisterSignUpCustomButton)
+        cancelButton = findViewById(R.id.activityRegisterCancelImageView)
 
+        // Bind Close
+        bindCancelButton()
         // Bind data to RegistrationUserData object
         bindInputs()
         // Bind sign up button
         bindSignUpButton()
+    }
+
+    // Closes the page
+    private fun bindCancelButton() {
+        cancelButton.setOnClickListener {
+            finish()
+        }
     }
 
     // Listens on signup click

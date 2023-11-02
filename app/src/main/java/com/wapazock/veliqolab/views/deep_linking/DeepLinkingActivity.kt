@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.wapazock.veliqolab.R
 import com.wapazock.veliqolab.views.otp.VerifyRegistrationEmailActivity
+import android.net.Uri
 
 class DeepLinkingActivity : AppCompatActivity() {
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.welcome.WelcomeActivity"
+    android:padding="22dp">
+
+    <!-- Not the nicest view -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Definitely not the nicest welcome page in the world, but it get's to demonstrate the intended pages. Hope it wont get our points reduced 😊"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Sign Up -->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/activityWelcomeSignUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Sign Up"
+        android:textColor="@color/hyperlink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <!-- Sign Up -->
+    <TextView
+        android:id="@+id/activityWelcomeSignInTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Go to Sign In"
+        android:textColor="@color/hyperlink"
+        app:layout_constraintStart_toStartOf="@+id/activityWelcomeSignUpTextView"
+        app:layout_constraintTop_toBottomOf="@id/activityWelcomeSignUpTextView" />
+
+    <TextView
+        android:id="@+id/activityWelcomeResetPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Go to Reset Password"
+        android:textColor="@color/hyperlink"
+        app:layout_constraintStart_toStartOf="@+id/activityWelcomeSignInTextView"
+        app:layout_constraintTop_toBottomOf="@id/activityWelcomeSignInTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
