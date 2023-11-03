@@ -1,6 +1,7 @@
 - Tasks :
-    - Force dark mode for the application
-    - Ensure UI on J6
-    - Notifications
     - Input error modes
-    - Activity Show Pending Toasts
+    - Yellow themed marker
+    - Suggest addresses
+    - Tests UI and units
+    - Make the next button popup
+    - Submit OTP on finishing typing

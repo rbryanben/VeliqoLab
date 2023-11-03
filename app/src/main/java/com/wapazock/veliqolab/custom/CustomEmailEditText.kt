@@ -48,50 +48,46 @@ class CustomEmailEditText : FrameLayout {
         init(context,attrs);
     }
 
-    // Animate the header to float to the top
-    fun animateHeader(){
-        // check if the animation has not been applied
-        if (this.animationApplied){
-            return
-        }
 
-        // Start translation animation
-        animationFloatUp.fillAfter = true
-        headerTextView.startAnimation(animationFloatUp)
-
-        headerTextView.setTextColor(resources.getColor(R.color.colorEditTextFocus))
-
-        // Set animation applied to true
-        animationApplied = true
-    }
 
     // Returns the EditTextComponent for watching
     fun getEditText(): EditText {
         return editText
     }
 
-
-    // Remove the applied animation
-    fun removeAnimation(){
-
-        // check if the animation is applied
-        if (this.animationApplied == false){
+    // Animate the header to float to the top
+    private fun animateHeader(){
+        // check if the animation has not been applied
+        if (this.animationApplied){
             return
         }
+        // Start translation animation
+        animationFloatUp.fillAfter = true
+        headerTextView.startAnimation(animationFloatUp)
+        // Set new color
+        headerTextView.setTextColor(resources.getColor(R.color.colorEditTextFocus))
+        // Set animation applied to true
+        animationApplied = true
+    }
 
-        // Start  Translation Animation
+    // Remove the applied animation
+    private fun removeAnimation(){
+        // check if the animation is applied
+        if (!this.animationApplied){
+            return
+        }
+        // Start Translation Animation
         animationFloatDown.fillAfter = true
         headerTextView.startAnimation(animationFloatDown)
-
+        // Change text color
         headerTextView.setTextColor(resources.getColor(R.color.colorEditText))
-
+        // Track animation change
         this.animationApplied = false
     }
 
     // Initialization method
     private fun init(context: Context,attrs: AttributeSet?) {
-
-        // Inflate a view
+        // Inflate view
         LayoutInflater.from(context).inflate(R.layout.custom_email_edit_text,this,true)
 
         // Set variables
@@ -105,7 +101,7 @@ class CustomEmailEditText : FrameLayout {
         val hint: String = attributesArray.getString(R.styleable.CustomEditText_CustomEditTextHint).toString()
 
         // Set hint
-        this.headerTextView.setText(hint)
+        this.headerTextView.text = hint
 
         // Listen for focus and change focus
         editText.onFocusChangeListener = OnFocusChangeListener { v, hasFocus ->

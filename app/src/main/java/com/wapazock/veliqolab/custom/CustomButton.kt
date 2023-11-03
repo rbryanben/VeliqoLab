@@ -12,7 +12,7 @@ import com.wapazock.veliqolab.R
 
 class CustomButton : FrameLayout {
 
-    // Variabls
+    // Variables
     private lateinit var buttonRelativeLayout: RelativeLayout
     private lateinit var buttonTextView: TextView
     private lateinit var progressBar: ProgressBar
