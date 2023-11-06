@@ -15,7 +15,7 @@ class http {
         private var okHttpClientBuilder: OkHttpClient.Builder? = null;
         private var okHttpClient: OkHttpClient? = null
         public final var BASE_URL = "https://challenge.veliqo.com/mobile/api/v1"
-        public var token:String? = null
+        public var token:String? = ""
 
         // Trust all certificates
         private var trustAllCerts = arrayOf<TrustManager>(

@@ -1,31 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/black"
-    android:padding="10dp">
+    android:background="@color/white">
 
-    <com.wapazock.veliqolab.custom.CustomEmailEditText
+    <!-- App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activityMainAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:CustomEditTextHint="Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customEditText" />
+        android:stateListAnimator="@null">
 
-    <com.wapazock.veliqolab.custom.CustomPasswordEditText
-        android:id="@+id/customEditText"
+        <!-- Collapsing Toolbar -->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/activityMainCollapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:contentScrim="@color/black">
+
+            <!-- Layout   -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_collapseMode="parallax">
+                <!-- Image -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/profile_sample"
+                    android:scaleType="centerCrop"/>
+
+                <!-- Gradient -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/top_gradient"/>
+
+                <!-- Circle Lock Button -->
+                <RelativeLayout
+                    android:background="@drawable/background_circle_back_white"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:elevation="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:tint="@color/text"
+                        android:src="@drawable/baseline_lock_person_24" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!-- Tool Bar -->
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:elevation="10dp"
+                app:layout_collapseMode="pin">
+
+                <!-- Custom Toolbar -->
+                <RelativeLayout
+                    android:id="@+id/activityMainCustomToolbarRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible">
+
+                    <!-- Profile Picture -->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/mainActivitySmallProfilePicture"
+                        android:layout_centerVertical="true"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/profile_sample"/>
+
+                    <!--  Name -->
+                    <TextView
+                        android:id="@+id/mainActivityFullNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/mainActivitySmallProfilePicture"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="Ryan Ben" />
+
+                    <!-- Lock -->
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/baseline_lock_person_24"/>
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Nested Layout -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        app:CustomEditTextHint="Email Address"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Relative Layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Full Name -->
+            <TextView
+                android:id="@+id/mainActivityMainFullNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_white_back"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:text="Ryan Ben" />
+
+            <!-- Email -->
+            <TextView
+                android:id="@+id/activityMainEmailTextView"
+                android:textColor="@color/hyperlink"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/mainActivityMainFullNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-5dp"
+                android:text="rbryanben@gmail.com" />
+
+            <!-- About Section -->
+            <TextView
+                android:layout_below="@id/activityMainEmailTextView"
+                android:id="@+id/mainActivityAboutSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_user"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text_white_back"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <!-- Call -->
+            <ImageView
+                android:id="@+id/mainActivityCallIcon"
+                android:layout_below="@id/mainActivityAboutSection"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@id/mainActivityMobileNumberTextView"
+                android:layout_marginTop="12.5dp"
+                app:tint="#4CAF50"
+                android:src="@drawable/baseline_phone_enabled_24" />
+
+            <!-- Text View -->
+            <TextView
+                android:id="@+id/mainActivityMobileNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mainActivityAboutSection"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_white_back"
+                android:layout_marginLeft="15dp"
+                android:text="0782533952"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Addresses -->
+            <TextView
+                android:id="@+id/mainActivityAddressesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@id/mainActivityMobileNumberTextView"
+                android:textColor="@color/text_white_back"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:text="Home addresses" />
+
+
+            <!-- Addresses Recycler View -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activityMainAddressesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/mainActivityAddressesTextView" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

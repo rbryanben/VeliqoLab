@@ -6,4 +6,5 @@
     <!-- Text Colors -->
     <color name="colorEditTextFocus" tools:ignore="MissingDefaultResource">#FFFFFF</color>
     <color name="colorEditText" tools:ignore="MissingDefaultResource">#878787</color>
+    <color name="text_white_back">#222222</color>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_toast_dark_background">
+
+        <!-- icon -->
+        <ImageView
+            android:id="@+id/customToastIconImageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_signal_wifi_bad_24" />
+
+        <!-- message -->
+        <TextView
+            android:id="@+id/customToastTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connection Lost"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/customToastIconImageView"
+            android:textSize="14dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"/>
+
+        <!-- Cancel Button -->
+        <ImageView
+            android:id="@+id/customToastCancelImageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:tint="@color/text"
+            android:visibility="gone"
+            android:src="@drawable/icon_cancel"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</RelativeLayout>

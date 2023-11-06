@@ -6,6 +6,9 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:progressTint">@color/black</item>
     </style>
-
+    <style name="Base.Theme.Veliqolab.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="Theme.Veliqolab" parent="Base.Theme.Veliqolab" />
 </resources>

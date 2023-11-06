@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.addresses.ViewAddress"
+    android:paddingLeft="15dp"
+    android:paddingTop="15dp"
+    android:paddingRight="15dp"
+    android:background="@color/white"
+    android:scrollbars="none">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Back Arrow -->
+            <ImageView
+                android:id="@+id/viewAddressCancelImageView"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/baseline_arrow_back_ios_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="View Address"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/text_white_back"
+                android:layout_marginTop="5.5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewAddressCancelImageView"
+                app:layout_constraintLeft_toRightOf="@id/viewAddressCancelImageView"
+                app:layout_constraintTop_toTopOf="@id/viewAddressCancelImageView" />
+
+            <ImageView
+                android:id="@+id/viewAddressDeleteAddress"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/trash_can_with_cover_from_side_view_svgrepo_com"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Linear Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="10dp">
+
+            <!-- Street Address 1 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Street Address 1"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:textColor="@color/text_white_back" />
+
+            <EditText
+                android:id="@+id/viewAddressStreet1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:text="313 Bradfield RD\nWaterfalls"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:gravity="top"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+            <!-- Street Address 2 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Street Address 2"
+                android:textColor="@color/text_white_back"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/activityViewAddressBackImageView" />
+
+            <EditText
+                android:id="@+id/viewAddressStreet2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:text="1 Njombo Lekula St\nMpumalanga Heights"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:gravity="top"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+            <!-- City -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:textColor="@color/text_white_back"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="@+id/activityViewAddressBackImageView" />
+
+            <EditText
+                android:id="@+id/viewAddressCity"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Harare"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+            <!-- Postal Code  -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Postal Code"
+                android:textColor="@color/text_white_back"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="@+id/activityViewAddressBackImageView" />
+
+            <EditText
+                android:id="@+id/viewAddressPostalCode"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:text="024"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:inputType="number"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+            <!-- Province  -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Province"
+                android:textColor="@color/text_white_back"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                app:layout_constraintStart_toStartOf="@+id/activityViewAddressBackImageView" />
+
+            <EditText
+                android:id="@+id/viewAddressProvince"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Harare Province"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+
+            <!-- Country -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country"
+                android:textColor="@color/text_white_back"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/activityViewAddressBackImageView" />
+
+            <EditText
+                android:id="@+id/viewAddressCountry"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Zimbabwe"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/drawable_edittext_large"
+                android:textColor="@color/text_white_back"/>
+
+            <com.wapazock.veliqolab.custom.CustomButtonWhite
+                android:id="@+id/viewAddressUpdateButton"
+                android:layout_marginTop="25dp"
+                app:CustomButtonText="Update"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -11,5 +11,6 @@ enum class ServerError {
     EMAIL_ALREADY_EXISTS,
     EXPIRED_OTP,
     INVALID_OTP,
-    INVALID_EMAIL
+    INVALID_EMAIL,
+    INVALID_AUTH_TOKEN
 }

@@ -15,14 +15,15 @@
         android:theme="@style/Theme.Veliqolab"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
             android:name=".views.otp.OtpResetPasswordActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="challenge.veliqo.com"
                     android:scheme="https" />
@@ -46,14 +47,16 @@
             android:exported="true"
             android:label="com.veliqo.wapazock" />
         <activity android:name=".views.reset_password.ResetPasswordActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".views.otp.CheckYourEmailActivity" />
         <activity android:name=".views.otp.VerifyRegistrationEmailActivity" />
         <activity android:name=".views.login.loginActivity" />
-        <activity android:name=".views.register.register"/>
+        <activity android:name=".views.register.register" />
+        <activity android:name=".views.addresses.ViewAddress"/>
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".views.welcome.WelcomeActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Base.Theme.Veliqolab">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

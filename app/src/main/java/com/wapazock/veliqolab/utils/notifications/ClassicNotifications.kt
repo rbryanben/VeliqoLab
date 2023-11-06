@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -23,13 +24,20 @@ class ClassicNotifications {
     companion object {
 
         // Notification Customizable
-        fun alertNotification(context: Context,text: String,type: NotificationTypes?){
+        fun alertNotification(context: Context,text: String,type: NotificationTypes?, dark : Boolean = false){
             // Toast
             val toast = Toast(context)
 
             // Layout
             val layoutInflater = LayoutInflater.from(context) as LayoutInflater
-            val layout = layoutInflater.inflate(R.layout.custom_toast, null)
+
+
+            var layout = layoutInflater.inflate(R.layout.custom_toast, null)
+
+            // If dark is true show the dark layout
+            if (dark){
+                layout  = layoutInflater.inflate(R.layout.custom_toast_dark, null)
+            }
 
             // Icon
             val icon : ImageView = layout.findViewById(R.id.customToastIconImageView)

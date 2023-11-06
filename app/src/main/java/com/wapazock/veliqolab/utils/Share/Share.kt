@@ -1,7 +1,5 @@
 package com.wapazock.veliqolab.utils.Share
 
-import java.util.Dictionary
-
 // This class is used to share data across the application
 // It implements a singleton repository for all
 class Share {
@@ -9,27 +7,31 @@ class Share {
     companion object {
 
         // Shared instance
-        private lateinit var instance : Share;
+        private var instance : Share?=null;
+
 
         //Get Instance
         fun getInstance() : Share {
             if (instance == null){
                 instance = Share()
             }
-            return instance
+            return instance as Share
         }
     }
 
     // Key Value Store
-    private var store : HashMap<String,Object> = HashMap()
+    private var store : HashMap<String,String> = HashMap()
 
     // Set Value
-    fun set(key : String, value : Object){
+    fun set(key: String, value: String){
         store[key] = value
     }
 
     // Get Value
-    fun get(key : String) : Object{
+    fun get(key : String) : String? {
+        if (!store.containsKey(key)){
+            return null
+        }
         return store[key]!!
     }
 }
