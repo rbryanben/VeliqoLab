@@ -12,6 +12,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorEditTextFocus"
         android:text="Definitely not the nicest welcome page in the world, but it get's to demonstrate the intended pages. Hope it wont get our points reduced 😊"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

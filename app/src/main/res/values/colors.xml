@@ -4,10 +4,12 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Text Colors -->
-    <color name="colorEditTextFocus" tools:ignore="MissingDefaultResource">#FFFFFF</color>
-    <color name="colorEditText" tools:ignore="MissingDefaultResource">#878787</color>
     <color name="hyperlink">#5068EC</color>
     <color name="text">#202020</color>
+
+    <!-- Text Colors -->
+    <color name="colorEditTextFocus" tools:ignore="MissingDefaultResource">#FFFFFF</color>
+    <color name="colorEditText" tools:ignore="MissingDefaultResource">#878787</color>
 
     <!-- Buttons -->
     <color name="colorButtonDisabled">#43444E</color>
